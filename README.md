@@ -1,7 +1,5 @@
 **Docker Basics**
 
-![docker vs vm](docker_vs_vm.png "Docker vs. VM")
-
 Docker Reference
 [https://docs.docker.com/reference/]
 
@@ -15,6 +13,7 @@ docker --help
 | image              | Mangage docker images     |
 | system             | Mangage docker            |
 | volume             | Mangage docker volumes    |
+
 
 
 | Command | Description                          |
@@ -43,7 +42,7 @@ docker --help
 search for openjdk image
 ```
 docker search openjdk
-````
+```
 
 pull openjdk image
 ```
