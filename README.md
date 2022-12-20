@@ -67,7 +67,7 @@ Image-Page
 build first image
 ```
 cd docker/first_image
-docker build -t commsult/dockerworkshop .
+docker build -t commsult/imagedemo .
 ```
 
 docker file reference
@@ -75,7 +75,7 @@ docker file reference
 
 run docker image
 ```
-docker run -d -p8090:8090 commsult/dockerworkshop
+docker run -d -p8090:8090 commsult/imagedemo
 ```
 
 see result
@@ -122,4 +122,55 @@ ls -l
 exit
 ```
 
-Compose-Here
+**Docker Compose**
+
+docker-compose --help
+
+| Commands           | Description               |
+| -------------------- | --------------------------- |
+| down               | Stop compose              |
+| scale              | Scale up/down services    |
+| up                 | Start compose             |
+
+building image with spring db app
+```
+cd docker_compose/compose_image
+docker build -t commsult/mydockercomposeimage .
+```
+
+compose file reference
+[https://docs.docker.com/compose/compose-file/]
+
+starting docker compose (app + db)
+```
+cd ../first_compose
+docker-compose up
+```
+
+see result
+[http://localhost:18091/tours]
+
+to scale docker compose remove first external port
+```
+docker-compose scale cs-compose-app=3
+```
+
+list docker containers
+```
+docker ls
+```
+
+stop docker compose
+```
+docker-compose down
+```
+
+volume is still available
+```
+docker volume ls
+```
+
+look for the path of the volume (linux/vm)
+```
+docker inspect <volume_name>
+```
