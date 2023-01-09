@@ -3,11 +3,11 @@ server:
 
 spring:
   datasource:
-    username: postgres
-    password: commsult
+    username: docker
+    password: docker
     driverClassName: org.postgresql.Driver
     #the port can be changed later
-    url: jdbc:postgresql://host.docker.internal:5432/docker-workshop
+    url: jdbc:postgresql://localhost:35433/docker-workshop
     test-on-borrow: true
     validation-query: SELECT 1
     hikari:

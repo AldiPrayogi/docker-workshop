@@ -1,4 +1,4 @@
-**Docker Basics**
+# Docker Basics
 
 Docker Reference
 [https://docs.docker.com/reference/]
@@ -121,7 +121,7 @@ ls -l
 exit
 ```
 
-**Docker Compose**
+# Docker Compose
 
 docker-compose --help
 
@@ -134,7 +134,7 @@ docker-compose --help
 building image with spring db app
 ```
 cd docker_compose/compose_image
-docker build -t commsult/mydockercomposeimage .
+docker build -t commsult/composedemo .
 ```
 
 compose file reference
