@@ -1,7 +1,6 @@
 version: "3.8"
 
 services:
-  #https://docs.docker.com/compose/networking/
   cs-commsult-app:
     image: commsult/composedemo
     volumes:
@@ -17,6 +16,7 @@ services:
       test: echo $$(wget -q -O - http://0.0.0.0:8091/actuator/health 2>&1) | grep -o -q "UP" || exit
       start_period: 5s
       interval: 5s
+      retries: 5
 
   cs-compose-db:
     image: postgres:14.5-alpine
@@ -24,17 +24,13 @@ services:
     ports:
     - 35433:5432
     volumes:
-    #- ./config/glc-traces-db:/docker-entrypoint-initdb.d
     - cs-compose-db-data:/var/lib/postgresql/data
-    # - "/etc/localtime:/etc/localtime:ro"
-    # - "/etc/timezone:/etc/timezone:ro"
     logging:
       options:
         max-size: 10m
     environment:
       POSTGRES_USER: docker
       POSTGRES_PASSWORD: docker
-      #POSTGRES_PASSWORD_FILE: /run/secrets/b1occ-otg-one-config-db-password
       POSTGRES_DB: docker-workshop
     command: ["postgres", "-c", "log_statement=all"]
     healthcheck:
