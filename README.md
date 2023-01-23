@@ -142,26 +142,16 @@ compose file reference
 
 starting docker compose (app + db)
 ```
-cd ../first_compose
+cd ../compose_file
 docker-compose up
 ```
 
 see result
-[http://localhost:18091/tours]
-
-to scale docker compose remove first external port
-```
-docker-compose scale cs-compose-app=3
-```
+[http://localhost:18091/customers]
 
 list docker containers
 ```
 docker ls
-```
-
-stop docker compose
-```
-docker-compose down
 ```
 
 volume is still available
