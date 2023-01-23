@@ -8,10 +8,13 @@ services:
     environment:
       SPRING_CONFIG_NAME: application
       SPRING_CONFIG_LOCATION: file:./config/
-    ports:
+    # ports:
       #we map the host port of 18091 to connect to the port 8091 of the container's port
-      - 18091:8091
-    entrypoint: [ "java", "-jar", "compose-demo.jar" ]
+      # - 18091-18095:8091
+      # - 18091:8091
+    expose:
+      - "8091"
+    entrypoint: ["java", "-jar", "compose-demo.jar"]
     healthcheck:
       test: echo $$(wget -q -O - http://0.0.0.0:8091/actuator/health 2>&1) | grep -o -q "UP" || exit
       start_period: 5s
@@ -36,6 +39,15 @@ services:
     healthcheck:
       test: pg_isready -U docker -d docker-workshop && echo "1" || echo "0"
       interval: 5s
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - cs-commsult-app
+    ports:
+      - "4000:4000"
 
 volumes:
   cs-compose-db-data:
