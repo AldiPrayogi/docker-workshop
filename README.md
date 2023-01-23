@@ -65,7 +65,7 @@ Image-Page
 
 build first image
 ```
-cd docker/first_image
+cd image_demo/image_demo_build
 docker build -t commsult/imagedemo .
 ```
 
@@ -74,7 +74,7 @@ docker file reference
 
 run docker image
 ```
-docker run -d -p8090:8090 commsult/imagedemo
+docker run -d -p 8090:8090 commsult/imagedemo
 ```
 
 see result
@@ -133,7 +133,7 @@ docker-compose --help
 
 building image with spring db app
 ```
-cd docker_compose/compose_image
+cd ../../compose_demo/compose_demo_build
 docker build -t commsult/composedemo .
 ```
 

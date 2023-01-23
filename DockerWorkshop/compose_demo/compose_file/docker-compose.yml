@@ -13,7 +13,7 @@ services:
       - 18091:8091
     entrypoint: ["java", "-jar", "compose-demo.jar"]
     healthcheck:
-      test: echo $$(wget -q - http://0.0.0.0:8091/actuator/health 2>&1 | grep -o -q "UP" || exit
+      test: echo $$(wget -q -O - http://0.0.0.0:8091/actuator/health 2>&1) | grep -o -q "UP" || exit
       start_period: 5s
       interval: 5s
       retries: 5
