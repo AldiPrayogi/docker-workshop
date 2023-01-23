@@ -151,7 +151,7 @@ see result
 
 list docker containers
 ```
-docker ls
+docker ps
 ```
 
 volume is still available
@@ -162,4 +162,14 @@ docker volume ls
 look for the path of the volume (linux/vm)
 ```
 docker inspect <volume_name>
+```
+
+scale app:
+```
+docker-compose up --scale cs-commsult-app=3
+```
+
+Stop and remove containers, networks:
+```
+docker-compose down
 ```
