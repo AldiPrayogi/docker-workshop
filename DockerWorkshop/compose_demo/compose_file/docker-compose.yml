@@ -10,6 +10,7 @@ services:
       SPRING_CONFIG_LOCATION: file:./config/
     ports:
       #we map the host port of 18091 to connect to the port 8091 of the container's port
+      # - 18091-18095:8091
       - 18091:8091
     entrypoint: ["java", "-jar", "compose-demo.jar"]
     healthcheck:
