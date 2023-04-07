@@ -47,7 +47,7 @@ services:
     depends_on:
       - cs-commsult-app
     ports:
-      - "4000:4000"
+      - 4000:4000
 
 volumes:
   cs-compose-db-data:
