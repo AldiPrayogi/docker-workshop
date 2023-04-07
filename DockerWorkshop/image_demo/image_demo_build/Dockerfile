@@ -3,6 +3,7 @@ FROM openjdk:11
 #this line copies the jar file to a specified folder within the image
 COPY image-demo.jar /usr/src/myapp/
 #this line sets the work directory of our image
+#workdir sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instruction
 WORKDIR /usr/src/myapp
 #this line runs whatever command is specified
 #in this instance we are essentially running

@@ -92,7 +92,7 @@ docker logs <containerid>
 
 look into container
 ```
-docker exec -it <containerid> bash
+docker exec -i <containerid> bash
 ls -l
 exit
 ```
@@ -116,9 +116,14 @@ copy file to container
 ```
 touch test.txt
 docker cp text.txt <containerid>:/usr/src/myapp/
-docker exec -it <containerid> bash
+docker exec -i <containerid> bash
 ls -l
 exit
+```
+
+destroy a stopped container
+```
+docker rm <container_name/id>
 ```
 
 # Docker Compose
@@ -169,7 +174,7 @@ scale app:
 docker-compose up --scale cs-commsult-app=3
 ```
 
-Stop and remove containers, networks:
+Stop and remove containers:
 ```
 docker-compose down
 ```

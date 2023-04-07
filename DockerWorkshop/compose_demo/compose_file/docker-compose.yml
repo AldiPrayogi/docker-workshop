@@ -1,10 +1,15 @@
 version: "3.8"
 
+#this states the desired services to start
+#here, we start the Spring Boot service and the Postgres db
 services:
   cs-commsult-app:
+    #we specify the image to base the container on
     image: commsult/composedemo
+    #this maps the config directory on the host to /user/src/myapp/config of the container
     volumes:
       - "./config:/usr/src/myapp/config"
+    #this states the environment variables location and name
     environment:
       SPRING_CONFIG_NAME: application
       SPRING_CONFIG_LOCATION: file:./config/
@@ -32,10 +37,12 @@ services:
       POSTGRES_USER: docker
       POSTGRES_PASSWORD: docker
       POSTGRES_DB: docker-workshop
+    #this states that all statements (create, update, select) are to be logged
     command: [ "postgres", "-c", "log_statement=all" ]
     healthcheck:
       test: pg_isready -U docker -d docker-workshop && echo "1" || echo "0"
       interval: 5s
 
+#this creates a new volume called cs-compose-db-data if it doesn't exist yet
 volumes:
   cs-compose-db-data:
