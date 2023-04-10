@@ -9,10 +9,10 @@ docker --help
 
 | Management Command | Description               |
 | -------------------- | --------------------------- |
-| container          | Mangage docker containers |
-| image              | Mangage docker images     |
-| system             | Mangage docker            |
-| volume             | Mangage docker volumes    |
+| container          | Manage docker containers |
+| image              | Manage docker images     |
+| system             | Manage docker            |
+| volume             | Manage docker volumes    |
 
 
 
